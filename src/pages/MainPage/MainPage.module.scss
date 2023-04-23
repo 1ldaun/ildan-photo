@@ -1,0 +1,9 @@
+@import "../../shared/scss/colors";
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black-1);
+  color: var(--snowy);
+  overflow: hidden;
+}
