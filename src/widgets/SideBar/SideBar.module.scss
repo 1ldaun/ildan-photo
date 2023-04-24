@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 295px;
+  padding: 20px;
+}
+
+.navigation {
+  list-style: none;
+  padding: 0;
+
+  &>*:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  * {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--gray-1);
+  }
+}
