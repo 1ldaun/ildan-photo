@@ -1,7 +1,7 @@
 import styles from "./SideBar.module.scss"
-import {Link} from "react-scroll";
 import logoUrl from "../../shared/img/logo.png"
 import TabsControlPanel from "../Tabs/TabsControlPanel";
+import {Link} from "react-router-dom";
 
 interface SideBarProps {
     changePicture: (x: () => void) => void;
@@ -10,11 +10,9 @@ interface SideBarProps {
 export const SideBar = ({changePicture}: SideBarProps) => {
     return (
         <div className={styles.wrapper}>
-            <img className={styles.logo} src={logoUrl} alt="logo"/>
+            <Link to="/" className={styles.logo}><img className={styles.logo__img} src={logoUrl} alt="logo"/></Link>
             <ul className={styles.navigation}>
-                <li><Link to={""}></Link>Обо мне</li>
-                <li><Link to={""}></Link>Контакты</li>
-                <li><Link to={""}></Link>Серии <span className={styles.navigation__toggle}>▼</span></li>
+                <li><Link to="/about">Обо мне</Link></li>
             </ul>
             <div className={styles.slideTabs}>
                 <TabsControlPanel changePicture={changePicture} />
