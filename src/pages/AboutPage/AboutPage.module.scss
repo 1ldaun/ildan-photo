@@ -1,0 +1,24 @@
+@import "../../shared/scss/colors";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 295px);
+  height: 100vh;
+  padding: 60px 40px 40px 0;
+  position: relative;
+  background-color: var(--black-1);
+  color: var(--snowy);
+  overflow: hidden;
+}
+
+.content {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.aboutImg {
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+}

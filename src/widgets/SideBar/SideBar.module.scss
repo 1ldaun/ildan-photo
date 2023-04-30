@@ -7,8 +7,13 @@
 }
 
 .logo {
-  width: 50%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__img {
+    width: 45%;
+  }
 }
 
 .navigation {
@@ -20,6 +25,7 @@
   }
 
   * {
+    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
