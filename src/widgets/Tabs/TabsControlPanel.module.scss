@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.counter {
+  font-size: 12px;
+  font-weight: 600;
+  align-self: center;
+}
+
+.control {
+  display: flex;
+  align-content: center;
+  height: 35px;
+  width: 35px;
+  padding: 11px;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  svg, g {
+    fill: #AAAAAA!important;
+  }
+
+  &:hover {
+    padding: 10px;
+    border: 1px solid #fff;
+
+    svg, g {
+      fill: #fff!important;
+    }
+  }
+}
