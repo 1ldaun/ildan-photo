@@ -1,10 +1,11 @@
 import styles from "./SideBar.module.scss"
 import {Link} from "react-scroll";
+import logoUrl from "../../shared/img/logo.png"
 
 export const SideBar = () => {
     return (
         <div className={styles.wrapper}>
-            <h1 className={styles.logo}>Ildan-photo</h1>
+            <img className={styles.logo} src={logoUrl} alt="logo"/>
             <ul className={styles.navigation}>
                 <li><Link to={""}></Link>Обо мне</li>
                 <li><Link to={""}></Link>Контакты</li>
