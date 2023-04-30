@@ -1,9 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import pictureReducer from "./reducers/PictureSlice";
+import tabsReducer from "./reducers/TabsSlice";
 
 
 const rootReducer = combineReducers({
-  pictureReducer
+  pictureReducer,
+  tabsReducer,
 });
 
 export const setupStore = () => {

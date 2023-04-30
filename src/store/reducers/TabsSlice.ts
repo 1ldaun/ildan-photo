@@ -30,6 +30,9 @@ export const tabsSlice = createSlice({
             if (action.payload < state.tabsCount)
                 state.currentTab = action.payload;
         },
+        setTabsCount(state, action: PayloadAction<number>) {
+            state.tabsCount = action.payload;
+        },
     }
 })
 

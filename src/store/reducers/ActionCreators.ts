@@ -10,8 +10,9 @@ export const fetchPictures = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(pictureSlice.actions.usersFetching);
         const response = await axios.get<string>(mainEndPoint + "photos-config.json");
-        console.log("!", JSON.parse(JSON.stringify(response.data)));
-        dispatch(pictureSlice.actions.usersFetchingSuccess(JSON.parse(JSON.stringify(response.data))));
+        const data = JSON.parse(JSON.stringify(response.data));
+        dispatch(pictureSlice.actions.usersFetchingSuccess(data));
+        dispatch(tabsSlice.actions.setTabsCount(data.length));
     }
     catch (e) {
         dispatch(pictureSlice.actions.usersFetchingFailed("error"));
