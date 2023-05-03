@@ -3,11 +3,13 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 interface TabsState {
     currentTab: number;
     tabsCount: number;
+    tabIsLoading: boolean;
 }
 
 const initialState: TabsState = {
     currentTab: 0,
     tabsCount: 0,
+    tabIsLoading: false,
 }
 
 export const tabsSlice = createSlice({
@@ -33,7 +35,10 @@ export const tabsSlice = createSlice({
         setTabsCount(state, action: PayloadAction<number>) {
             state.tabsCount = action.payload;
         },
+        switchIsLoading(state) {
+            state.tabIsLoading = !state.tabIsLoading;
+        },
     }
-})
+});
 
 export default tabsSlice.reducer;

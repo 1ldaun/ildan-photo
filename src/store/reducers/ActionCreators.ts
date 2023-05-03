@@ -20,13 +20,19 @@ export const fetchPictures = () => async (dispatch: AppDispatch) => {
 }
 
 export const nextTab = () => (dispatch: AppDispatch) => {
-    dispatch(tabsSlice.actions.nextTab());
+    dispatch(tabsSlice.actions.switchIsLoading());
+    setTimeout(() => dispatch(tabsSlice.actions.nextTab()), 200);
+    setTimeout(() => dispatch(tabsSlice.actions.switchIsLoading()), 215);
 };
 
 export const prevTab = () => (dispatch: AppDispatch) => {
-    dispatch(tabsSlice.actions.prevTab());
+    dispatch(tabsSlice.actions.switchIsLoading());
+    setTimeout(() => dispatch(tabsSlice.actions.prevTab()), 200);
+    setTimeout(() => dispatch(tabsSlice.actions.switchIsLoading()), 215);
 };
 
 export const setTab = () => (dispatch: AppDispatch, tabNumber: number) => {
-    dispatch(tabsSlice.actions.setTab(tabNumber));
+    dispatch(tabsSlice.actions.switchIsLoading());
+    setTimeout(() => dispatch(tabsSlice.actions.setTab(tabNumber)), 200);
+    setTimeout(() => dispatch(tabsSlice.actions.switchIsLoading()), 215);
 }
