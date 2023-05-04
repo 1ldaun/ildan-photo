@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import cx from "classnames";
 import { useTabsLogic } from "../../hooks/useTabsLogic";
 
-export const MainPage = () => {
+const MainPage = () => {
 	const dispatch = useAppDispatch();
 	const { resetTimer, nextTabHandle, prevTabHandle } = useTabsLogic();
 	const { pictures } = useAppSelector((state) => state.pictureReducer);
@@ -55,3 +55,5 @@ export const MainPage = () => {
 		</div>
 	);
 };
+
+export default MainPage;

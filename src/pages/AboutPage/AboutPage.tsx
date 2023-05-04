@@ -2,7 +2,7 @@ import styles from "./AboutPage.module.scss";
 import React from "react";
 import aboutImg from "../../shared/img/about_v1.jpg";
 
-export const AboutPage = () => {
+const AboutPage = () => {
 	return (
 		<div className={styles.wrapper}>
 			<p className={styles.content}>
@@ -17,3 +17,5 @@ export const AboutPage = () => {
 		</div>
 	);
 };
+
+export default AboutPage;
