@@ -1,17 +1,16 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import pictureReducer from "./reducers/PictureSlice";
 import tabsReducer from "./reducers/TabsSlice";
 
-
 const rootReducer = combineReducers({
-  pictureReducer,
-  tabsReducer,
+	pictureReducer,
+	tabsReducer,
 });
 
 export const setupStore = () => {
-  return configureStore({
-    reducer: rootReducer,
-  })
+	return configureStore({
+		reducer: rootReducer,
+	});
 };
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -20,7 +20,7 @@
   list-style: none;
   padding: 0;
 
-  &>*:not(:last-child) {
+  & > *:not(:last-child) {
     margin-bottom: 10px;
   }
 

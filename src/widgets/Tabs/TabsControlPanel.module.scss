@@ -22,16 +22,18 @@
   cursor: pointer;
   box-sizing: border-box;
 
-  svg, g {
-    fill: #AAAAAA!important;
+  svg,
+  g {
+    fill: #aaaaaa !important;
   }
 
   &:hover {
     padding: 10px;
     border: 1px solid #fff;
 
-    svg, g {
-      fill: #fff!important;
+    svg,
+    g {
+      fill: #fff !important;
     }
   }
 }
