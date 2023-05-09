@@ -9,7 +9,14 @@ module.exports = {
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
 	],
-	overrides: [],
+	overrides: [
+		{
+			files: ["**/*.spec.js", "**/*.spec.jsx"],
+			env: {
+				jest: true,
+			},
+		},
+	],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaVersion: "latest",
@@ -18,7 +25,10 @@ module.exports = {
 	plugins: ["react", "@typescript-eslint"],
 	rules: {
 		indent: ["error", "tab"],
-		"linebreak-style": ["error", "windows"],
+		"linebreak-style": [
+			"error",
+			process.platform === "win32" ? "windows" : "unix",
+		],
 		quotes: ["error", "double"],
 		semi: ["error", "always"],
 	},
