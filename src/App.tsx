@@ -13,7 +13,7 @@ const App = () => {
 				<SideBar />
 				<SocialBlock />
 				<Routes>
-					<Route path="/" element={<MainPage />} />
+					<Route path="/gallery/*" element={<MainPage />} />
 					<Route path="/about" element={<AboutPage />} />
 				</Routes>
 			</div>

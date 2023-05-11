@@ -17,37 +17,29 @@ const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
 	);
 
 	return (
-		<>
-			<div className={styles.pictureWrapper}>
-				<img
-					src={mainEndPoint + pictures[currentTab]?.url}
-					className={cx(
-						styles.picture,
-						tabIsLoading && styles.picture_animation,
-					)}
-					alt={pictures[currentTab]?.alt}
-					loading="lazy"
-				/>
-				<div
-					className={cx(
-						styles.controlButton,
-						styles.controlButton_left,
-					)}
-					onClick={nextTabHandle}
-				>
-					<span>{"<"}</span>
-				</div>
-				<div
-					className={cx(
-						styles.controlButton,
-						styles.controlButton_right,
-					)}
-					onClick={prevTabHandle}
-				>
-					<span>{">"}</span>
-				</div>
+		<div className={styles.pictureWrapper}>
+			<img
+				src={mainEndPoint + pictures[currentTab]?.url}
+				className={cx(
+					styles.picture,
+					tabIsLoading && styles.picture_animation,
+				)}
+				alt={pictures[currentTab]?.alt}
+				loading="lazy"
+			/>
+			<div
+				className={cx(styles.controlButton, styles.controlButton_left)}
+				onClick={nextTabHandle}
+			>
+				<span>{"<"}</span>
 			</div>
-		</>
+			<div
+				className={cx(styles.controlButton, styles.controlButton_right)}
+				onClick={prevTabHandle}
+			>
+				<span>{">"}</span>
+			</div>
+		</div>
 	);
 };
 

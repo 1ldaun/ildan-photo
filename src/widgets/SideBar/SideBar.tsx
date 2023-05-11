@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const SideBar = () => {
 	return (
 		<div className={styles.wrapper}>
-			<Link to="/" className={styles.logo}>
+			<Link to="/gallery" className={styles.logo}>
 				<img className={styles.logo__img} src={logoUrl} alt="logo" />
 			</Link>
 			<ul className={styles.navigation}>

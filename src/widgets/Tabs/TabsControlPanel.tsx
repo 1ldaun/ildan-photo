@@ -6,33 +6,42 @@ import { ReactComponent as ArrowRightSvg } from "../../shared/img/arrow-right.sv
 import { ReactComponent as ChangeViewSvg } from "../../shared/img/change-view.svg";
 import cx from "classnames";
 import { useTabsLogic } from "../../hooks/useTabsLogic";
+import { Link } from "react-router-dom";
 
 const TabsControlPanel = () => {
 	const { nextTabHandle, prevTabHandle } = useTabsLogic();
 	const { currentTab, tabsCount } = useAppSelector(
 		(state) => state.tabsReducer,
 	);
+	const isTabsViewActive = location.pathname.search("/tabs") !== -1;
 
 	return (
 		<div className={styles.wrapper}>
-			<div className={cx(styles.control, styles.control_changeView)}>
+			<Link
+				to={isTabsViewActive ? "/gallery/table" : "/gallery/tabs"}
+				className={cx(styles.control, styles.control_changeView)}
+			>
 				<ChangeViewSvg />
-			</div>
-			<div className={styles.counter}>
-				{currentTab + 1} из {tabsCount}
-			</div>
-			<div
-				className={cx(styles.control, styles.control_left)}
-				onClick={prevTabHandle}
-			>
-				<ArrowLeftSvg />
-			</div>
-			<div
-				className={cx(styles.control, styles.control_right)}
-				onClick={nextTabHandle}
-			>
-				<ArrowRightSvg />
-			</div>
+			</Link>
+			{isTabsViewActive && (
+				<>
+					<div className={styles.counter}>
+						{currentTab + 1} из {tabsCount}
+					</div>
+					<div
+						className={cx(styles.control, styles.control_left)}
+						onClick={prevTabHandle}
+					>
+						<ArrowLeftSvg />
+					</div>
+					<div
+						className={cx(styles.control, styles.control_right)}
+						onClick={nextTabHandle}
+					>
+						<ArrowRightSvg />
+					</div>
+				</>
+			)}
 		</div>
 	);
 };

@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { useTabsLogic } from "../../hooks/useTabsLogic";
 import TabView from "../../widgets/TabView/TabView";
+import { Route, Routes } from "react-router-dom";
+import TableView from "../../widgets/TableView/TableView";
 
 const MainPage = () => {
 	const dispatch = useAppDispatch();
@@ -17,7 +19,13 @@ const MainPage = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<TabView pictures={pictures} />
+			<Routes>
+				<Route path="/tabs" element={<TabView pictures={pictures} />} />
+				<Route
+					path="/table"
+					element={<TableView pictures={pictures} />}
+				/>
+			</Routes>
 		</div>
 	);
 };
