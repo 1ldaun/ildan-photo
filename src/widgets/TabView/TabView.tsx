@@ -5,6 +5,9 @@ import cx from "classnames";
 import { IPicture } from "../../models/IPicture";
 import { useTabsLogic } from "../../hooks/useTabsLogic";
 import { useAppSelector } from "../../hooks/redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface TabViewProps {
 	pictures: IPicture[];
@@ -18,14 +21,16 @@ const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
 
 	return (
 		<div className={styles.pictureWrapper}>
-			<img
+			<LazyLoadImage
 				src={mainEndPoint + pictures[currentTab]?.url}
 				className={cx(
 					styles.picture,
 					tabIsLoading && styles.picture_animation,
+					"img-lazy",
 				)}
 				alt={pictures[currentTab]?.alt}
 				loading="lazy"
+				effect="blur"
 			/>
 			<div
 				className={cx(styles.controlButton, styles.controlButton_left)}
