@@ -17,15 +17,15 @@ export const pictureSlice = createSlice({
 	name: "picture",
 	initialState,
 	reducers: {
-		usersFetching(state) {
+		picturesFetching(state) {
 			state.isLoading = true;
 		},
-		usersFetchingSuccess(state, action: PayloadAction<IPicture[]>) {
+		picturesFetchingSuccess(state, action: PayloadAction<IPicture[]>) {
 			state.isLoading = true;
 			state.error = "";
 			state.pictures = action.payload;
 		},
-		usersFetchingFailed(state, action: PayloadAction<string>) {
+		picturesFetchingFailed(state, action: PayloadAction<string>) {
 			state.isLoading = true;
 			state.error = action.payload;
 		},

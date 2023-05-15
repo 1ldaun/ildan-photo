@@ -7,15 +7,15 @@ export const mainEndPoint = "https://ildan-dev.ru/shared/";
 
 export const fetchPictures = () => async (dispatch: AppDispatch) => {
 	try {
-		dispatch(pictureSlice.actions.usersFetching);
+		dispatch(pictureSlice.actions.picturesFetching);
 		const response = await axios.get<string>(
 			mainEndPoint + "photos-config.json",
 		);
 		const data = JSON.parse(JSON.stringify(response.data));
-		dispatch(pictureSlice.actions.usersFetchingSuccess(data));
+		dispatch(pictureSlice.actions.picturesFetchingSuccess(data));
 		dispatch(tabsSlice.actions.setTabsCount(data.length));
 	} catch (e) {
-		dispatch(pictureSlice.actions.usersFetchingFailed("error"));
+		dispatch(pictureSlice.actions.picturesFetchingFailed("error"));
 	}
 };
 
