@@ -9,5 +9,6 @@
   position: relative;
   background-color: var(--black-1);
   color: var(--snowy);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
