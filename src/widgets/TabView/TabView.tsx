@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC, useState} from "react";
 import styles from "./TabView.module.scss";
 import { mainEndPoint } from "../../store/reducers/ActionCreators";
 import cx from "classnames";
@@ -14,6 +14,7 @@ interface TabViewProps {
 
 const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
 	const { nextTabHandle, prevTabHandle } = useTabsLogic();
+	const { isImgLoading, setIsImgLoading } = useState(true);
 	const { currentTab, tabIsLoading } = useAppSelector(
 		(state) => state.tabsReducer,
 	);
@@ -22,15 +23,16 @@ const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
 		<div className={styles.pictureWrapper}>
 			<img
 				src={mainEndPoint + pictures[currentTab]?.url}
+				onLoad={() => setIsImgLoading(false)}
 				className={cx(
 					styles.picture,
-					tabIsLoading && styles.picture_animation,
+					(tabIsLoading || isImgLoading) && styles.picture_animation,
 				)}
 				alt={pictures[currentTab]?.alt}
 			/>
 			<div
 				className={cx(styles.controlButton, styles.controlButton_left)}
-				onClick={nextTabHandle}
+				onClick={() => {nextTabHandle(); setIsImgLoading(true);}}
 			>
 				<span>{"<"}</span>
 			</div>
