@@ -9,7 +9,7 @@ interface TabsState {
 const initialState: TabsState = {
 	currentTab: 0,
 	tabsCount: 0,
-	tabIsLoading: false,
+	tabIsLoading: true,
 };
 
 export const tabsSlice = createSlice({
