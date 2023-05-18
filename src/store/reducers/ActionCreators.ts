@@ -2,8 +2,13 @@ import { AppDispatch } from "../store";
 import axios from "axios";
 import { pictureSlice } from "./PictureSlice";
 import { tabsSlice } from "./TabsSlice";
+import { appSlice } from "./AppSlice";
 
 export const mainEndPoint = "https://ildan-dev.ru/shared/";
+
+export const switchAppMode = () => (dispatch: AppDispatch) => {
+	dispatch(appSlice.actions.switchAppMode());
+};
 
 export const fetchPictures = () => async (dispatch: AppDispatch) => {
 	try {
@@ -27,6 +32,10 @@ export const nextTab = () => (dispatch: AppDispatch) => {
 export const prevTab = () => (dispatch: AppDispatch) => {
 	dispatch(tabsSlice.actions.switchIsLoading());
 	setTimeout(() => dispatch(tabsSlice.actions.prevTab()), 200);
+};
+
+export const clearTabs = () => (dispatch: AppDispatch) => {
+	dispatch(tabsSlice.actions.clearTabs());
 };
 
 export const setTabLoaded = () => (dispatch: AppDispatch) => {

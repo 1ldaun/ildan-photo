@@ -34,6 +34,9 @@ export const tabsSlice = createSlice({
 		switchIsLoading(state) {
 			state.tabIsLoading = !state.tabIsLoading;
 		},
+		clearTabs(state) {
+			state.tabIsLoading = initialState.tabIsLoading;
+		},
 	},
 });
 

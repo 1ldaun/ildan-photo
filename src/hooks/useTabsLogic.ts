@@ -1,4 +1,4 @@
-import {nextTab, prevTab, setTabLoaded} from "../store/reducers/ActionCreators";
+import {clearTabs, nextTab, prevTab, setTabLoaded} from "../store/reducers/ActionCreators";
 import { useAppDispatch } from "./redux";
 
 export const useTabsLogic = () => {
@@ -13,6 +13,9 @@ export const useTabsLogic = () => {
 	const setTabLoadedHandle = () => {
 		dispatch(setTabLoaded());
 	};
+	const clearTabsHandle = () => {
+		dispatch(clearTabs());
+	};
 
-	return { nextTabHandle, prevTabHandle, setTabLoadedHandle };
+	return { nextTabHandle, prevTabHandle, setTabLoadedHandle, clearTabsHandle };
 };

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./TabView.module.scss";
 import { mainEndPoint } from "../../store/reducers/ActionCreators";
 import cx from "classnames";
@@ -13,10 +13,19 @@ interface TabViewProps {
 }
 
 const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
-	const { nextTabHandle, prevTabHandle, setTabLoadedHandle } = useTabsLogic();
+	const {
+		nextTabHandle,
+		prevTabHandle,
+		setTabLoadedHandle,
+		clearTabsHandle,
+	} = useTabsLogic();
 	const { currentTab, tabIsLoading } = useAppSelector(
 		(state) => state.tabsReducer,
 	);
+
+	useEffect(() => {
+		clearTabsHandle();
+	}, []);
 
 	return (
 		<div className={styles.pictureWrapper}>
@@ -31,13 +40,13 @@ const TabView: FC<TabViewProps> = ({ pictures }: TabViewProps) => {
 			/>
 			<div
 				className={cx(styles.controlButton, styles.controlButton_left)}
-				onClick={nextTabHandle}
+				onClick={prevTabHandle}
 			>
 				<span>{"<"}</span>
 			</div>
 			<div
 				className={cx(styles.controlButton, styles.controlButton_right)}
-				onClick={prevTabHandle}
+				onClick={nextTabHandle}
 			>
 				<span>{">"}</span>
 			</div>
