@@ -4,13 +4,11 @@ import { IPicture } from "../../models/IPicture";
 interface PictureState {
 	pictures: IPicture[];
 	isLoading: boolean;
-	error: string;
 }
 
 const initialState: PictureState = {
 	pictures: [],
 	isLoading: false,
-	error: "",
 };
 
 export const pictureSlice = createSlice({
@@ -22,12 +20,10 @@ export const pictureSlice = createSlice({
 		},
 		picturesFetchingSuccess(state, action: PayloadAction<IPicture[]>) {
 			state.isLoading = true;
-			state.error = "";
 			state.pictures = action.payload;
 		},
 		picturesFetchingFailed(state, action: PayloadAction<string>) {
 			state.isLoading = true;
-			state.error = action.payload;
 		},
 	},
 });
